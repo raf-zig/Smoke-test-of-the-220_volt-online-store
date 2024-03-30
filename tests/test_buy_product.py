@@ -13,7 +13,7 @@ def test_select_product():
     mp.click_catalog()
     driver.execute_script("window.scrollTo(0, 350)")
     cp = Catalog_page(driver)
-    cp.click_mixer()
+    cp.choosing_bathtub_faucet()
     print("finish")
     driver.quit()
 
