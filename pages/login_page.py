@@ -57,6 +57,11 @@ class Login_page(Base):
 
     # Methods
 
+    def assert_word_under_login_symbol(self, word):
+        value_word = word.text
+        assert value_word != "Вход"
+        print("Input button hasn`t 'Вход'")
+
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
@@ -65,7 +70,7 @@ class Login_page(Base):
         self.input_email("ziravin@yandex.ru")
         self.input_password("rncv1996")
         self.click_continue_button()
-        time.sleep(1)
+        time.sleep(2)
         self.assert_word_under_login_symbol(self.get_word_under_login_symbol())
 
 

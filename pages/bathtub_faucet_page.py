@@ -15,11 +15,15 @@ class Bathtub_faucet_page(Base):
     # Locators
 
     price_slider = "//*[@id='price_slider']/div[2]"
+    date_receipt_check_box = "//*[@id='delivery_state__more-than-two-days']"
 
     # Getters
 
     def get_price_slider(self):
        return self.driver.find_element(By.XPATH, self.price_slider)
+
+    def get_date_receipt_check_box(self):
+       return self.driver.find_element(By.XPATH, self.date_receipt_check_box)
 
     # Actions
     def change_price_slider(self):
@@ -27,9 +31,12 @@ class Bathtub_faucet_page(Base):
         price_slider = self.get_price_slider()
         action.click_and_hold(price_slider).move_by_offset(20, 0).release().perform()
         print("Change price slider")
-        time.sleep(2)
+
+    def click_date_receipt_check_box(self):
+        self.get_date_receipt_check_box().click()
+        print("click date receipt check box")
 
     # Methods
-
-    def choosing_bathtub_faucet(self):
+    def model_selection(self):
         self.change_price_slider()
+        self.click_date_receipt_check_box()

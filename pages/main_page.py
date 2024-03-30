@@ -26,7 +26,7 @@ class Main_page(Base):
         self.get_catalog().click()
         print("Click catalog")
 
-# Methods
+
 
 
 

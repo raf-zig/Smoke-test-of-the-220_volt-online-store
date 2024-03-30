@@ -27,30 +27,21 @@ class Catalog_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.for_bash)))
 
     def get_price_slider(self):
-        #return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_slider)))
         return self.driver.find_element(By.XPATH, self.price_slider)
     # Actions
 
     def click_mixer(self):
         self.get_mixer().click()
         print("Click mixer")
-        time.sleep(1)
+        #time.sleep(1)
 
     def click_for_bash(self):
         self.get_for_bash().click()
         print("Click for bash")
-        time.sleep(1)
+        #time.sleep(1)
 
-    def change_price_slider(self):
-        action = ActionChains(self.driver)
-        price_slider = self.get_price_slider()
-        time.sleep(1)
-        action.click_and_hold(price_slider).move_by_offset(10, 0).release().perform()
-        print("Change price slider")
-        time.sleep(1)
-    # Methods
+   # Methods
 
     def choosing_bathtub_faucet(self):
         self.click_mixer()
         self.click_for_bash()
-        self.change_price_slider()
