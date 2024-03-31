@@ -1,3 +1,5 @@
+import time
+
 from pages.bathtub_faucet_page import Bathtub_faucet_page
 from pages.catalog_page import Catalog_page
 from pages.login_page import Login_page
@@ -16,7 +18,8 @@ def test_select_product():
     cp.choosing_bathtub_faucet()
     bp = Bathtub_faucet_page(driver)
     bp.model_selection()
-    print("finish")
+    time.sleep(30)
+    print("Finish")
     driver.quit()
 
 
