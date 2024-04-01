@@ -5,8 +5,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
 
-import time
-
 class Bathtub_faucet_page(Base):
     def __init__(self, driver):
         super().__init__(driver)
@@ -42,7 +40,7 @@ class Bathtub_faucet_page(Base):
     homeland = "//*[@id='filterForm']/div/div[31]/p/span/span/a"
     germany = "//*[@id='p7064_4106596712']"
     select_model_button = "//*[@id='filterSubm']"
-    for_bathroom = "/html/body/div[3]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/a/img"
+    mixer = "//div/a[@title='Смеситель для ванны с душем AM PM X-Joy F85A95000']"
 
     # Getters
 
@@ -112,8 +110,8 @@ class Bathtub_faucet_page(Base):
     def get_select_model_button(self):
        return self.driver.find_element(By.XPATH, self.select_model_button)
 
-    def get_for_bathroom(self):
-       return self.driver.find_element(By.XPATH, self.for_bathroom)
+    def get_mixer(self):
+       return self.driver.find_element(By.XPATH, self.mixer)
 
     # Actions
 
@@ -209,10 +207,11 @@ class Bathtub_faucet_page(Base):
         self.get_select_model_button().click()
         print("click select model button")
 
-    def click_for_bathroom(self):
-        self.get_for_bathroom().click()
-        print("click for bathroom")
-    # Methods
+    def click_mixer(self):
+        self.get_mixer().click()
+        print("click mixer")
+
+   # Methods
 
     def model_selection(self):
         self.change_price_slider()
@@ -237,4 +236,5 @@ class Bathtub_faucet_page(Base):
         self.click_homeland()
         self.click_germany()
         self.click_select_model_button()
-        self.click_for_bathroom()
+        self.click_mixer()
+

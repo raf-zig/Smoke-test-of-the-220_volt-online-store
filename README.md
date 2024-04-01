@@ -1,1 +1,1 @@
-Smoke testing of a 220 volt magazine
+Smoke testing of the entire 220 volt online store business path
