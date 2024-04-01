@@ -11,7 +11,7 @@ class Cart_page(Base):
     order_registration = "//h1[@class='mhbspace-20 text-center']"
     product_name = "//a[@id='cart-product-link-714791']"
     total_amount = "//*[@id='sum714791']"
-    x_sign = "//*[@id='line714791']/td[6]/a"
+    x_sign = "//a[@class='btn-del']"
 
     # Actions
 
@@ -36,4 +36,4 @@ class Cart_page(Base):
         self.assert_word(self.get_total_amount(), "19 990")
 
     def delete_item(self):
-        self.get_x_sign()
+        self.get_x_sign().click()

@@ -37,7 +37,7 @@ class Bathtub_faucet_page(Base):
     spout_length = "//*[@id='filterForm']/div/div[24]/p/span/span/a"
     spout_length_slider = "//*[@id='p17368_slider']/div[1]"
     collection = "//*[@id='filterForm']/div/div[30]/p/span/span/a"
-    spirit_v_2_0 = "//*[@id='filterForm']/div/div[30]/ul/li[4]/span/label"
+    spirit_v_2_0 = "//*[@id='filterForm']/div/div[30]/ul/li[3]/span/label"
     homeland = "//*[@id='filterForm']/div/div[31]/p/span/span/a"
     germany = "//*[@id='p7064_4106596712']"
     select_model_button = "//*[@id='filterSubm']"
