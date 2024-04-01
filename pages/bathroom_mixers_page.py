@@ -11,6 +11,7 @@ class Bathtub_faucet_page(Base):
         self.driver = driver
 
     # Locators
+
     mixers_for_bathroom = "//h1[@class='head-1']"
     price_slider = "//*[@id='price_slider']/div[2]"
     date_receipt_check_box = "//*[@id='delivery_state__more-than-two-days']"
@@ -28,7 +29,7 @@ class Bathtub_faucet_page(Base):
     standard_of_connection = "//*[@id='filterForm']/div/div[18]/p/span/span/a"
     _1_2_check_box = "//*[@id='filterForm']/div/div[18]/ul/li[1]/span/label"
     mounting_holes = "//*[@id='filterForm']/div/div[19]/p/span/span/a"
-    _2 = "//*[@id='p17361_450215437']"
+    _2_hole = "//*[@id='p17361_450215437']"
     material = "//*[@id='filterForm']/div/div[21]/p/span/span/a"
     brass = "//*[@id='p4730_564374798']"
     coating_color = "//*[@id='filterForm']/div/div[23]/p/span/span/a"
@@ -91,6 +92,12 @@ class Bathtub_faucet_page(Base):
 
     def get_1_2_check_box(self):
         return WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, self._1_2_check_box)))
+
+    def get_mounting_holes(self):
+       return self.driver.find_element(By.XPATH, self.mounting_holes)
+
+    def get_2_hole(self):
+        return WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, self._2_hole)))
 
     def get_spout_length(self):
        return self.driver.find_element(By.XPATH, self.spout_length)
@@ -180,6 +187,14 @@ class Bathtub_faucet_page(Base):
         self.get_1_2_check_box().click()
         print("click 1_2 check box")
 
+    def click_mounting_holes(self):
+        self.get_mounting_holes().click()
+        print("click mounting holes")
+
+    def click_2_hole(self):
+        self.get_2_hole().click()
+        print("click 2_hole")
+
     def click_spout_length(self):
         self.get_spout_length().click()
         print("click spout length")
@@ -217,6 +232,7 @@ class Bathtub_faucet_page(Base):
    # Methods
 
     def model_selection(self):
+        self.get_current_url()
         self.assert_word(self.get_mixers_for_bathroom(), "Смесители для ванны")
         self.change_price_slider()
         self.click_date_receipt_check_box()
@@ -233,6 +249,8 @@ class Bathtub_faucet_page(Base):
         self.click_traditional_check_box()
         self.click_standard_of_connection()
         self.click_1_2_check_box()
+        self.click_mounting_holes()
+        self.click_2_hole()
         self.click_spout_length()
         self.change_spout_length_slider()
         self.click_collection()

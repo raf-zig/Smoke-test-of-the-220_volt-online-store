@@ -1,11 +1,8 @@
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 from base.base_class import Base
-
-import time
 
 class Catalog_page(Base):
     def __init__(self, driver):
@@ -32,6 +29,7 @@ class Catalog_page(Base):
 
     def get_price_slider(self):
         return self.driver.find_element(By.XPATH, self.price_slider)
+
     # Actions
 
     def click_mixer(self):
@@ -47,6 +45,7 @@ class Catalog_page(Base):
    # Methods
 
     def choosing_bathtub_faucet(self):
+        self.get_current_url()
         self.assert_word(self.get_product_catalog(), "Каталог товаров")
         self.click_mixer()
         self.click_for_bash()

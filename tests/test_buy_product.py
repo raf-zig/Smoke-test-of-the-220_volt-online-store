@@ -5,9 +5,8 @@ from pages.cart_page import Cart_page
 from pages.catalog_page import Catalog_page
 from pages.login_page import Login_page
 from pages.main_page import Main_page
-from selenium import webdriver
-
 from pages.mixer_page import Mixer_page
+from selenium import webdriver
 
 def test_select_product():
     driver = webdriver.Chrome()
