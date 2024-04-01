@@ -1,3 +1,4 @@
+import datetime
 import time
 
 from pages.bathroom_mixers_page import Bathtub_faucet_page
@@ -7,10 +8,10 @@ from pages.login_page import Login_page
 from pages.main_page import Main_page
 from pages.mixer_page import Mixer_page
 from selenium import webdriver
+from utilities.conftest import set_up
 
-def test_select_product():
+def test_select_product(set_up):
     driver = webdriver.Chrome()
-    print("Start Test")
     login = Login_page(driver)
     login.authorization()
     mp = Main_page(driver)
@@ -24,8 +25,12 @@ def test_select_product():
     mxp.put_in_cart()
     cp = Cart_page(driver)
     cp.order()
-    time.sleep(5)
-    print("Finish")
+    now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
+    name_screenshot = 'screenshot' + now_date + '.png'
+    time.sleep(3)
+    driver.save_screenshot('C:\\Users\\Rav\\PycharmProjects\\pythonProject1\\screen\\' + name_screenshot)
+    cp.delete_item()
+    time.sleep(3)
     driver.quit()
 
 

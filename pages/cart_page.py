@@ -11,6 +11,7 @@ class Cart_page(Base):
     order_registration = "//h1[@class='mhbspace-20 text-center']"
     product_name = "//a[@id='cart-product-link-714791']"
     total_amount = "//*[@id='sum714791']"
+    x_sign = "//*[@id='line714791']/td[6]/a"
 
     # Actions
 
@@ -23,6 +24,9 @@ class Cart_page(Base):
     def get_total_amount(self):
         return self.driver.find_element(By.XPATH, self.total_amount)
 
+    def get_x_sign(self):
+        return self.driver.find_element(By.XPATH, self.x_sign)
+
     # Methods
 
     def order(self):
@@ -30,3 +34,6 @@ class Cart_page(Base):
         self.assert_word(self.get_order_registration(), "Оформление заказа")
         self.assert_word(self.get_product_name(), "Смеситель для ванны с душем AM PM X-Joy F85A95000")
         self.assert_word(self.get_total_amount(), "19 990")
+
+    def delete_item(self):
+        self.get_x_sign()
