@@ -6,6 +6,8 @@ from pages.login_page import Login_page
 from pages.main_page import Main_page
 from selenium import webdriver
 
+from pages.mixer_page import Mixer_page
+
 def test_select_product():
     driver = webdriver.Chrome()
     print("Start Test")
@@ -18,7 +20,9 @@ def test_select_product():
     cp.choosing_bathtub_faucet()
     bp = Bathtub_faucet_page(driver)
     bp.model_selection()
-    time.sleep(10)
+    mxp = Mixer_page(driver)
+    mxp.put_in_cart()
+    time.sleep(5)
     print("Finish")
     driver.quit()
 

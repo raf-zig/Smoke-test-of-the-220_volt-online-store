@@ -11,7 +11,7 @@ class Bathtub_faucet_page(Base):
         self.driver = driver
 
     # Locators
-
+    mixers_for_bathroom = "//h1[@class='head-1']"
     price_slider = "//*[@id='price_slider']/div[2]"
     date_receipt_check_box = "//*[@id='delivery_state__more-than-two-days']"
     product_with_high_rating_check_box = "//*[@id='high_rating__1']"
@@ -43,6 +43,9 @@ class Bathtub_faucet_page(Base):
     mixer = "//div/a[@title='Смеситель для ванны с душем AM PM X-Joy F85A95000']"
 
     # Getters
+
+    def get_mixers_for_bathroom(self):
+       return self.driver.find_element(By.XPATH, self.mixers_for_bathroom)
 
     def get_price_slider(self):
        return self.driver.find_element(By.XPATH, self.price_slider)
@@ -214,6 +217,7 @@ class Bathtub_faucet_page(Base):
    # Methods
 
     def model_selection(self):
+        self.assert_word(self.get_mixers_for_bathroom(), "Смесители для ванны")
         self.change_price_slider()
         self.click_date_receipt_check_box()
         self.click_product_with_high_rating_check_box()

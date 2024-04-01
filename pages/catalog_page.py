@@ -14,11 +14,15 @@ class Catalog_page(Base):
 
     # Locators
 
+    product_catalog = "//h1[@class='head-1']"
     mixer = "/html/body/div[3]/div/div[2]/div/div[12]/div/div/ul/li[1]/a/span"
     for_bash = "/html/body/div[3]/div/div[2]/div/div[12]/div/div/ul/li[1]/ul/li[3]/a"
     price_slider = "//*[@id='price_slider']/div[2]"
 
     # Getters
+
+    def get_product_catalog(self):
+       return self.driver.find_element(By.XPATH, self.product_catalog)
 
     def get_mixer(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.mixer)))
@@ -43,5 +47,6 @@ class Catalog_page(Base):
    # Methods
 
     def choosing_bathtub_faucet(self):
+        self.assert_word(self.get_product_catalog(), "Каталог товаров")
         self.click_mixer()
         self.click_for_bash()
