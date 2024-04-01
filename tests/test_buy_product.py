@@ -1,6 +1,7 @@
 import time
 
 from pages.bathroom_mixers_page import Bathtub_faucet_page
+from pages.cart_page import Cart_page
 from pages.catalog_page import Catalog_page
 from pages.login_page import Login_page
 from pages.main_page import Main_page
@@ -22,6 +23,8 @@ def test_select_product():
     bp.model_selection()
     mxp = Mixer_page(driver)
     mxp.put_in_cart()
+    cp = Cart_page(driver)
+    cp.order()
     time.sleep(5)
     print("Finish")
     driver.quit()
