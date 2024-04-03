@@ -28,7 +28,7 @@ def test_select_product(set_up):
     now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
     name_screenshot = 'screenshot' + now_date + '.png'
     time.sleep(2)
-    driver.save_screenshot('C:\\Users\\Rav\\PycharmProjects\\pythonProject1\\screen\\' + name_screenshot)
+    driver.save_screenshot('../screen/' + name_screenshot)
     cp.delete_item()
     time.sleep(2)
     driver.quit()
